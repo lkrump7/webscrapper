@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Web Scraping App</title>
+</head>
+<body>
+    <h1>Web Scraping Application</h1>
+    <form action="/scrape" method="post">
+        <input type="text" name="url" placeholder="Enter URL to scrape" required>
+        <button type="submit">Scrape</button>
+    </form>
+
+    {% if titles %}
+        <h2>Scraped Titles:</h2>
+        <ul>
+            {% for title in titles %}
+                <li>{{ title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
